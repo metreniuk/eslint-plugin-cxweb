@@ -18,6 +18,9 @@ var rule = require("../../../lib/rules/map-state-to-props"),
 const parserOptions = {
   ecmaVersion: 2018,
   sourceType: "module",
+  ecmaFeatures: {
+    jsx: true,
+  },
 }
 var ruleTester = new RuleTester({ parserOptions })
 ruleTester.run("map-state-to-props", rule, {

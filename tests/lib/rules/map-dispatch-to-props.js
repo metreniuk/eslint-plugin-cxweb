@@ -17,6 +17,9 @@ var rule = require("../../../lib/rules/map-dispatch-to-props"),
 const parserOptions = {
   ecmaVersion: 2018,
   sourceType: "module",
+  ecmaFeatures: {
+    jsx: true,
+  },
 }
 var ruleTester = new RuleTester({ parserOptions })
 ruleTester.run("map-dispatch-to-props", rule, {

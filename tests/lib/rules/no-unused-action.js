@@ -113,6 +113,24 @@ ruleTester.run("no-unused-action", rule, {
         }
     }
     `,
+    `
+    import {action1} from './actions'
+
+    const mapDispatchToProps = {
+        propAction1: action1
+    }
+    
+    class SomeClassComponent extends Component {
+        render() {
+          const {propAction1} = this.props
+          return (
+              <button onClick={propAction1}>
+                {this.props.children}
+              </button>
+          );
+        }
+    }
+    `,
   ],
 
   invalid: [

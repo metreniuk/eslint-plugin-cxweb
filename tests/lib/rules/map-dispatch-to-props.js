@@ -54,7 +54,7 @@ ruleTester.run("map-dispatch-to-props", rule, {
       }`,
       errors: [
         {
-          message: "mapDispatchToProps should be an object literal",
+          message: `"mapDispatchToProps" should be an object literal`,
         },
       ],
     },
@@ -67,7 +67,7 @@ ruleTester.run("map-dispatch-to-props", rule, {
       }`,
       errors: [
         {
-          message: "mapDispatchToProps should be an object literal",
+          message: `"mapDispatchToProps" should be an object literal`,
         },
       ],
     },
@@ -78,7 +78,7 @@ ruleTester.run("map-dispatch-to-props", rule, {
       })`,
       errors: [
         {
-          message: "mapDispatchToProps should be an object literal",
+          message: `"mapDispatchToProps" should be an object literal`,
         },
       ],
     },

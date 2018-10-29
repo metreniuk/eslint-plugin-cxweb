@@ -137,12 +137,12 @@ ruleTester.run("no-unused-action", rule, {
     {
       code: `
       import {action1, action2} from './actions'
-  
+
       const mapDispatchToProps = {
           propAction1: action1,
           propAction2: action2
       }
-      
+
       const SomeContainer = withHandlers({
           onClick: ({propAction1}) => () => {
               propAction1()
@@ -151,19 +151,19 @@ ruleTester.run("no-unused-action", rule, {
       `,
       errors: [
         {
-          message: "propAction2 is not used",
+          message: `"propAction2" is not used`,
         },
       ],
     },
     {
       code: `
         import {action1, action2} from './actions'
-    
+
         const mapDispatchToProps = {
             propAction1: action1,
             propAction2: action2
         }
-        
+
         class SomeClassComponent extends Component {
             render() {
               return (
@@ -176,19 +176,19 @@ ruleTester.run("no-unused-action", rule, {
         `,
       errors: [
         {
-          message: "propAction2 is not used",
+          message: `"propAction2" is not used`,
         },
       ],
     },
     {
       code: `
           import {action1, action2} from './actions'
-      
+
           const mapDispatchToProps = {
               propAction1: action1,
               propAction2: action2
           }
-          
+
           class SomeClassComponent extends Component {
               render() {
                 return (
@@ -201,19 +201,19 @@ ruleTester.run("no-unused-action", rule, {
           `,
       errors: [
         {
-          message: "propAction2 is not used",
+          message: `"propAction2" is not used`,
         },
       ],
     },
     {
       code: `
         import {action1, action2} from './actions'
-    
+
         const mapDispatchToProps = {
             propAction1: action1,
             propAction2: action2
         }
-        
+
         class SomeClassComponent extends Component {
             handleClick() {
                 this.props.propAction1()
@@ -229,7 +229,31 @@ ruleTester.run("no-unused-action", rule, {
         `,
       errors: [
         {
-          message: "propAction2 is not used",
+          message: `"propAction2" is not used`,
+        },
+      ],
+    },
+    {
+      code: `
+      import {action1} from './actions'
+
+      const mapDispatchToProps = {
+          action1,
+      }
+
+      class SomeClassComponent extends Component {
+          render() {
+            return (
+                <button>
+                  {this.props.children}
+                </button>
+            );
+          }
+      }
+            `,
+      errors: [
+        {
+          message: `"action1" is not used`,
         },
       ],
     },

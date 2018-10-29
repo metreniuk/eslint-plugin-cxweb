@@ -96,7 +96,7 @@ ruleTester.run("map-state-to-props", rule, {
       `,
       errors: [
         {
-          message: "mapStateToProps should be a structured selector",
+          message: `"mapStateToProps" should be a structured selector`,
         },
       ],
     },
@@ -110,7 +110,7 @@ ruleTester.run("map-state-to-props", rule, {
       `,
       errors: [
         {
-          message: "mapStateToProps should be a structured selector",
+          message: `"mapStateToProps" should be a structured selector`,
         },
       ],
     },

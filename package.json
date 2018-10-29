@@ -25,5 +25,18 @@
   "engines": {
     "node": ">=0.10.0"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metreniuk/eslint-plugin-cxweb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/metreniuk/eslint-plugin-cxweb/issues"
+  },
+  "homepage": "https://github.com/metreniuk/eslint-plugin-cxweb#readme"
 }

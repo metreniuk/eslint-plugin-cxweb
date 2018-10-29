@@ -26,18 +26,20 @@ var ruleTester = new RuleTester({ parserOptions })
 ruleTester.run("map-state-to-props", rule, {
   valid: [
     `
-    function mapStateToProps(state, props) {
+    function mapStateToProps(state, {productId}) {
+        const isChannelInBundle = makeIsChannelInBundle(
+          productId,
+          COMBOPACK_BUNDLE_ID
+        );
+      
         return {
-            a: selectA(state, props),
-        }
-    }
-    `,
-    `
-    const mapStateToProps = (state, props) => {
-        return {
-            a: selectA(state, props),
-        }
-    }
+          isAuthenticated: isUserAuthenticated(state),
+          accountId: getUserAccountId(state),
+          isBundleChannel: isChannelInBundle(state),
+          isProductSubscribable: isProductSubscribableFromProps(state, {productId}),
+          isLoading: isLoading(state),
+        };
+      }
     `,
     `
     function mapStateToProps(state) {
